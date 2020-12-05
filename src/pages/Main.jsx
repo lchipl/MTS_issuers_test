@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Cards } from '../components/Cards/Cards';
-import { MosApi } from '../services/mos';
+import { MosApi } from '../utils/api/api_info';
 
 import './main.css'
 
