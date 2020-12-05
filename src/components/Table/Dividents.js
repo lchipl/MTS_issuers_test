@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 });
 
 
-const dividends = 
+const dividents = 
 [
   {"secid": "MTSS", "isin": "RU0007775219", "registryclosedate": "2013-08-14", "value": 5.22, "currencyid": "RUB"},
   {"secid": "MTSS", "isin": "RU0007775219", "registryclosedate": "2014-07-07", "value": 18.6, "currencyid": "RUB"},
@@ -36,28 +36,26 @@ const dividends =
   ]
  
 
-export  function List() {
+export  const  Dividents = () => {
   const classes = useStyles();
 
   return (
-    
+      
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Дата</TableCell>
-            <TableCell align="right">Значение дивидента</TableCell>
-            <TableCell align="right">Валюта?</TableCell>
+            <TableCell align="center"><strong>Дата</strong></TableCell>
+            <TableCell align="center"><strong>Значение дивидента</strong></TableCell>
+            <TableCell align="center"><strong>Валюта?</strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {dividends.map((dividend) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{dividend.registryclosedate}</TableCell> 
-              <TableCell align="right">{dividend.value}</TableCell>
-              <TableCell align="right">{dividend.currencyid}</TableCell>
+          {dividents.map((divident) => (
+            <TableRow >
+              
+              <TableCell align="center">{divident.registryclosedate}</TableCell> 
+              <TableCell align="center">{divident.value}</TableCell>
+              <TableCell align="center">{divident.currencyid}</TableCell>
             </TableRow>
           ))}
         </TableBody>

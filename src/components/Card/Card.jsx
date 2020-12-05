@@ -1,5 +1,6 @@
-import { Button,List,Modal } from '@material-ui/core';
+import { Button,Modal } from '@material-ui/core';
 import React,{useState} from 'react';
+import { Dividents } from '../Table/Dividents';
 
 import './card.css';
 
@@ -23,15 +24,16 @@ export const Card = ({card}) =>{
         aria-labelledby="server-modal-title"
         aria-describedby="server-modal-description"
         >
-            <div className='modalCard'>
-                
-            Модалка {card.securities.data[0]}
-            Дивиденты:
-             <List />
 
-            <Button color="primary" onClick={handleClose}>
+            <div className='modalCard'>
+                <Button color="primary" onClick={handleClose}>
                     Закрыть
             </Button> 
+            Модалка {card.securities.data[0]}
+            Дивиденты:
+            <Dividents />
+
+            
             </div>
         </Modal>
         
@@ -48,7 +50,7 @@ export const Card = ({card}) =>{
                    <p>gosreg: {card.securities.data[0][11]}</p>
                 
             <Button color="primary" onClick={handleClickOpen}>
-                    Перейти
+                    Подробнее
             </Button>           
         </div>
         </div>
