@@ -13,7 +13,7 @@ export const Card = ({card}) =>{
     const handleClose =()=>{
         setOpen(false)
     }
-
+    console.log(card.securities.data[0][1])
     return(
         
         <div>
@@ -24,7 +24,8 @@ export const Card = ({card}) =>{
         aria-describedby="server-modal-description"
         >
             <div className='modalCard'>
-            Модалка {card.name}
+            Модалка {card.securities.data[0]}
+            
             <Button color="primary" onClick={handleClose}>
                     Закрыть
             </Button> 
@@ -33,14 +34,15 @@ export const Card = ({card}) =>{
         
   
         <div className="card" >
-                <h3>​​​​name: {card.name}</h3>
-                    <p>secid: </p>
+                <h3>​​​​name:</h3>
+                    <p>id: {card.securities.data[0][0]} </p>
+                    <p>secid: {card.securities.data[0][1]}</p>
                     <p>shortname:</p> 
                     ​​​​
                    <p>regnumber:</p>
-                   <p>emitent_title:</p>
-                   <p>emitent_inn:</p>
-                   <p>gosreg:</p>
+                   <p>emitent_title: {card.securities.data[0][8]}</p>
+                   <p>emitent_inn: {card.securities.data[0][9]}</p>
+                   <p>gosreg: {card.securities.data[0][11]}</p>
                 
             <Button color="primary" onClick={handleClickOpen}>
                     Перейти

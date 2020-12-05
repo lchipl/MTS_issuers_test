@@ -4,8 +4,8 @@ import { Card } from '../Card/Card';
 import './cards.css'
 
 
-export const Cards = ({cards})=>{
+export const Cards = ({companies})=>{
     return(
-        cards.map((card)=><li key={cards.id}> <Card card={card}/> </li>)
+        companies.map((card)=><li > <Card card={card}/> </li>)
     )
 }

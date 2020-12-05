@@ -3,6 +3,7 @@ import axios from 'axios';
 import {COMPANIES} from '../constants'
 
 const _base_api = 'https://iss.moex.com/iss/securities.json?q='
+
 export const MosApi =async () =>{
 
     const store= [];
