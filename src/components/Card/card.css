@@ -7,3 +7,10 @@
     
     text-align:center;
 }
+
+.modalCard{
+    background:white;
+    margin:2%;
+    height:auto;
+    height:50%;
+}

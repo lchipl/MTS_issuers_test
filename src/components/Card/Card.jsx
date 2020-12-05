@@ -23,8 +23,8 @@ export const Card = ({card}) =>{
         aria-labelledby="server-modal-title"
         aria-describedby="server-modal-description"
         >
-            <div>
-            Модалка
+            <div className='modalCard'>
+            Модалка {card.name}
             <Button color="primary" onClick={handleClose}>
                     Закрыть
             </Button> 
@@ -32,7 +32,7 @@ export const Card = ({card}) =>{
         </Modal>
         
   
-        <div className="card" onClick={handleClickOpen}>
+        <div className="card" >
                 <h3>​​​​name: {card.name}</h3>
                     <p>secid: </p>
                     <p>shortname:</p> 
@@ -42,7 +42,7 @@ export const Card = ({card}) =>{
                    <p>emitent_inn:</p>
                    <p>gosreg:</p>
                 
-            <Button color="primary">
+            <Button color="primary" onClick={handleClickOpen}>
                     Перейти
             </Button>           
         </div>
