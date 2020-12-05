@@ -4,3 +4,7 @@ export const SET_LOADING = 'SET_LOADING';
 export const HIDE_LOADER = 'HIDE_LOADER';
 
 export const FETCH_COMPANIES = 'FETCH_COMPANIES';
+
+
+export const FETCH_DEVIDENTS = 'FETCH_DEVIDENTS';
+export const GET_DEVIDENTS = 'GET_DEVIDENTS';

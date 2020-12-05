@@ -10,9 +10,8 @@ import { sagaFetchCompanies } from './redux/saga';
 
 const saga = createSagaMiddleware()
 const store =createStore(reducer,compose(
-  applyMiddleware(saga),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
- )
+  applyMiddleware(saga)
+ ))
 
 saga.run(sagaFetchCompanies)
 

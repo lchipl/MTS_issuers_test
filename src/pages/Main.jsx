@@ -1,3 +1,4 @@
+import { List } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Cards } from '../components/Cards/Cards';
@@ -31,7 +32,7 @@ export const Main = () =>{
     
     return(
         <div className="main">
-
+            <List />
         <Cards companies={companies}/>
         </div>
     )

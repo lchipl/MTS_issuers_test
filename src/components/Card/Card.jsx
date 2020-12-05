@@ -1,4 +1,4 @@
-import { Button,Modal } from '@material-ui/core';
+import { Button,List,Modal } from '@material-ui/core';
 import React,{useState} from 'react';
 
 import './card.css';
@@ -24,8 +24,11 @@ export const Card = ({card}) =>{
         aria-describedby="server-modal-description"
         >
             <div className='modalCard'>
+                
             Модалка {card.securities.data[0]}
-            
+            Дивиденты:
+             <List />
+
             <Button color="primary" onClick={handleClose}>
                     Закрыть
             </Button> 
