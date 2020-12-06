@@ -1,4 +1,5 @@
 import { Button,makeStyles,Modal } from '@material-ui/core';
+import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import React,{useState} from 'react';
 import { Promotions } from '../Promotions/Promotions';
 import { Dividents } from '../Table/Dividents';
@@ -23,14 +24,16 @@ export const Card = ({card}) =>{
          height:'90%',
           overflow:'scroll'
         },
-        cost:{
-            'grid-column':2/3,
-            'grid-row':1/3
-        },
+        
         wrapper:{
             display:'grid',
-            'grid-template-columns':'1fr 1fr 1fr',
-            'grid-template-rows':'1fr 1fr'
+            'grid-template-columns':'1fr 1fr',
+            'grid-template-rows':'300px 50%',
+            'grid-column-gap':'3%'
+        },
+        cost:{
+            'grid-column':2,
+            'grid-row':2
         },
         table:{
             'grid-column':1/2,
@@ -39,6 +42,16 @@ export const Card = ({card}) =>{
         
         btn:{
             width:'100%'
+        },
+        btnClose:{
+            color: '#E87866',
+            cursor:'pointer',
+            background:'white',
+            height:'5%',
+            width:'5%',
+            position:'fixed',
+            top:'5%',
+            right:'2%'
         }
 
       });
@@ -99,18 +112,19 @@ console.log('дата?', data)
            
             <Dividents />
 
+            
+            
+            <CancelPresentationIcon color="primary" className={classes.btnClose} onClick={handleClose} />
+                     
+            <Chart data={data}/>
+
             <div className={classes.cost}>
             <Promotions 
             promotions={promotions}
             data={data}
             />
             </div>
-            <div >
-            <Chart data={data}/>
-            </div>
-            <Button color="primary" onClick={handleClose}>
-                    Закрыть
-            </Button> 
+            
            </div>
             </div>
         </Modal>
