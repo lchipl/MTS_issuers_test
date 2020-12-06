@@ -16,10 +16,13 @@ const useStyles = makeStyles({
 
 
 
-export  const  Promotions = ({promotions,data}) => {
+export  const  Promotions = ({promotions,data,nameCompany}) => {
   const classes = useStyles();
     
   promotions.reverse()
+
+
+  console.log('проценты', data)
   return (
       
       <Table className={classes.table} size="small" aria-label="a dense table">
@@ -38,7 +41,7 @@ export  const  Promotions = ({promotions,data}) => {
               <TableCell align="center">{promotion.TRADEDATE}</TableCell> 
               <TableCell align="center">{promotion.OPEN}</TableCell>
               <TableCell align="center">{promotion.CLOSE}</TableCell>
-              <TableCell align="center">{data[i].percent}</TableCell>
+              <TableCell align="center">{data[i][nameCompany]}</TableCell>
             </TableRow>
           ))}
         </TableBody>

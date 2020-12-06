@@ -47,8 +47,8 @@ export const Card = ({card}) =>{
         btnClose:{
             color: '#E87866',
             cursor:'pointer',
-            height:'5%',
-            width:'5%',
+            height:'7%',
+            width:'7%',
             position:'fixed',
             top:'3%',
             right:'1%'
@@ -60,10 +60,13 @@ export const Card = ({card}) =>{
 
       const percent = [];
 
+
+      const nameCompany = card.securities.data[0][1];
     
         const handleDifferense = (OPEN,CLOSE) =>{
-          
-            return Number(((CLOSE-OPEN)/OPEN*100).toFixed(2))
+            let res = Number(((CLOSE-OPEN)/OPEN*100).toFixed(2))
+            percent.push(res)
+            return res
         }
 
       const promotions = 
@@ -83,16 +86,18 @@ export const Card = ({card}) =>{
 
 const data = [  ];
 for(let i = 0; i<promotions.length; i++){
-    data.push({ name : promotions[i].TRADEDATE,
-        MTS  : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
+    data.push({ 
+        tradeDate : promotions[i].TRADEDATE,
+        [nameCompany]  : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
     })
+
 }
 
 console.log('дата?', data)
 
     let colorClassName = ''
 
-    const nameCompany = card.securities.data[0][1];
+    
 
     if(nameCompany == "YNDX"){
         colorClassName += ' yndx'
@@ -127,13 +132,14 @@ console.log('дата?', data)
             
             <CancelPresentationIcon color="primary" className={classes.btnClose} onClick={handleClose} />
                      
-            <Chart data={data}/>
+            <Chart data={data} nameCompany={nameCompany}/>
 
             <div className={classes.cost}>
-            <Promotions 
-            promotions={promotions}
-            data={data}
-            />
+              <Promotions 
+                promotions={promotions}
+                data={data}
+                nameCompany={nameCompany}
+                />
             </div>
             
            </div>
