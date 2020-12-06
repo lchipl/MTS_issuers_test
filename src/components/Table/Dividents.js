@@ -9,8 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 const useStyles = makeStyles({
   table: {
     fontSize:10,
-    maxWidth: 350,
-
+    maxWidth: 450
   },
 });
 
