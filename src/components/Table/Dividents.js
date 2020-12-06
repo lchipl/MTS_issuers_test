@@ -3,14 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    fontSize:10,
+    maxWidth: 350,
+
   },
 });
 
@@ -34,7 +34,7 @@ const dividents =
   {"secid": "MTSS", "isin": "RU0007775219", "registryclosedate": "2020-07-09", "value": 20.57, "currencyid": "RUB"},
   {"secid": "MTSS", "isin": "RU0007775219", "registryclosedate": "2020-10-12", "value": 8.93, "currencyid": "RUB"}
   ]
- 
+  dividents.reverse()
 
 export  const  Dividents = () => {
   const classes = useStyles();
@@ -45,7 +45,7 @@ export  const  Dividents = () => {
         <TableHead>
           <TableRow>
             <TableCell align="center"><strong>Дата</strong></TableCell>
-            <TableCell align="center"><strong>Значение дивидента</strong></TableCell>
+            <TableCell align="center"><strong>Значение дивидента %</strong></TableCell>
             <TableCell align="center"><strong>Валюта?</strong></TableCell>
           </TableRow>
         </TableHead>
