@@ -22,22 +22,15 @@ const data = [
 
 export default class Chart extends PureComponent {
 
-  
+ 
   render() {
-    console.log('проценты', this.props.percent)
-    
-    for(let i = 0; i<this.props.promotions.length; i++){
-        data.push({ name : this.props.promotions[i].TRADEDATE,
-                    percent : this.props.percent[i]
-        })
-    }
 
 
     return (
       <LineChart
         width={500}
         height={300}
-        data={data}
+        data={this.props.data}
         margin={{
           top: 5, right: 30, left: 20, bottom: 5,
         }}

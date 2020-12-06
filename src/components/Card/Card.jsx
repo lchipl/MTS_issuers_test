@@ -72,8 +72,14 @@ export const Card = ({card}) =>{
 ]
 
 
+const data = [  ];
+for(let i = 0; i<promotions.length; i++){
+    data.push({ name : promotions[i].TRADEDATE,
+                percent : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
+    })
+}
 
-
+console.log('дата?', data)
 
     return(
         
@@ -96,11 +102,11 @@ export const Card = ({card}) =>{
             <div className={classes.cost}>
             <Promotions 
             promotions={promotions}
-            handleDifferense={handleDifferense}
+            data={data}
             />
             </div>
             <div >
-            <Chart percent={percent} promotions={promotions}/>
+            <Chart data={data}/>
             </div>
             <Button color="primary" onClick={handleClose}>
                     Закрыть

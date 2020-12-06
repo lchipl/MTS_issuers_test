@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 
 
-export  const  Promotions = ({promotions,handleDifferense}) => {
+export  const  Promotions = ({promotions,data}) => {
   const classes = useStyles();
     
   promotions.reverse()
@@ -32,13 +32,13 @@ export  const  Promotions = ({promotions,handleDifferense}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {promotions.map((promotion) => (
+          {promotions.map((promotion,i) => (
             <TableRow >
               
               <TableCell align="center">{promotion.TRADEDATE}</TableCell> 
               <TableCell align="center">{promotion.OPEN}</TableCell>
               <TableCell align="center">{promotion.CLOSE}</TableCell>
-              <TableCell align="center">{handleDifferense(promotion.OPEN,promotion.CLOSE)}</TableCell>
+              <TableCell align="center">{data[i].percent}</TableCell>
             </TableRow>
           ))}
         </TableBody>
