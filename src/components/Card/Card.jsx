@@ -102,9 +102,10 @@ console.log('дата?', data)
         
         aria-labelledby="server-modal-title"
         aria-describedby="server-modal-description"
+        
         >
             
-            <div className={'modalCard '+ `${classes.modal}`} >
+            <div className={'modalCard '+ `${classes.modal}`}  >
             <div className={classes.wrapper}>
 
             
@@ -127,10 +128,11 @@ console.log('дата?', data)
             
            </div>
             </div>
+
         </Modal>
         
   
-        <div className="card" >
+        <div className="card"  >
                 <h3>​​​​name:</h3>
                     <p>id: {card.securities.data[0][0]} </p>
                     <p>secid: {card.securities.data[0][1]}</p>
