@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 export  const  Promotions = ({promotions,handleDifferense}) => {
   const classes = useStyles();
     
-  
+  promotions.reverse()
   return (
       
       <Table className={classes.table} size="small" aria-label="a dense table">

@@ -70,7 +70,6 @@ export const Card = ({card}) =>{
         {"BOARDID": "TQBR", "TRADEDATE": "2020-01-15", "SHORTNAME": "МТС-ао", "SECID": "MTSS", "NUMTRADES": 9399, "VALUE": 697688247, "OPEN": 317, "LOW": 315.4, "HIGH": 319.55, "LEGALCLOSEPRICE": 318.65, "WAPRICE": 317.8, "CLOSE": 318.65, "VOLUME": 2195450, "MARKETPRICE2": 317.8, "MARKETPRICE3": 317.8, "ADMITTEDQUOTE": 318.65, "MP2VALTRD": 697688247, "MARKETPRICE3TRADESVALUE": 697688247, "ADMITTEDVALUE": 697688247, "WAVAL": null, "TRADINGSESSION": 3},
         {"BOARDID": "TQBR", "TRADEDATE": "2020-01-16", "SHORTNAME": "МТС-ао", "SECID": "MTSS", "NUMTRADES": 7436, "VALUE": 584029748.5, "OPEN": 318.65, "LOW": 317, "HIGH": 319.8, "LEGALCLOSEPRICE": 319.8, "WAPRICE": 318.55, "CLOSE": 319.8, "VOLUME": 1833270, "MARKETPRICE2": 318.55, "MARKETPRICE3": 318.55, "ADMITTEDQUOTE": 319.8, "MP2VALTRD": 584029748.5, "MARKETPRICE3TRADESVALUE": 584029748.5, "ADMITTEDVALUE": 584029748.5, "WAVAL": null, "TRADINGSESSION": 3},
 ]
-promotions.reverse()
 
 
 
@@ -101,7 +100,7 @@ promotions.reverse()
             />
             </div>
             <div >
-            <Chart percent={percent}/>
+            <Chart percent={percent} promotions={promotions}/>
             </div>
             <Button color="primary" onClick={handleClose}>
                     Закрыть

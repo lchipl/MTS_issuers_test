@@ -16,47 +16,20 @@ import {
 
 
 const data = [
-    {
-        name: '0',  percent: 0.1, amt: 3000,
-      },
-  {
-    name: 'Неделя 1',  percent: 0.1, amt: 2400,
-  },
-  {
-    name: 'Неделя 2',  percent: -2, amt: 2400,
-  },
-
-  {
-    name: 'Неделя 3',  percent: 0.3, amt: 2400,
-  },
-  {
-    name: 'Неделя 4', percent: 0.4, amt: 2400,
-  },
-  {
-    name: 'Неделя 1',  percent: 0.1, amt: 2400,
-  },
-  {
-    name: 'Неделя 2',  percent: -2, amt: 2400,
-  },
-
-  {
-    name: 'Неделя 3',  percent: 0.3, amt: 100,
-  },
-  {
-    name: 'Неделя 4', percent: 0.4, amt: 100,
-  },
+ 
   
 ];
 
 export default class Chart extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/xqjtetw0/';
 
   
   render() {
     console.log('проценты', this.props.percent)
     
-    for(let i = 0; i<data.length; i++){
-        data[i].percent = this.props.percent[i]
+    for(let i = 0; i<this.props.promotions.length; i++){
+        data.push({ name : this.props.promotions[i].TRADEDATE,
+                    percent : this.props.percent[i]
+        })
     }
 
 
@@ -74,7 +47,7 @@ export default class Chart extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="percent" stroke="#8884d8" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="percent" stroke="#8884d8" activeDot={{ r: 9}} />
         
       </LineChart>
     );
