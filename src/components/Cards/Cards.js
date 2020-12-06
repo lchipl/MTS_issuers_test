@@ -6,6 +6,6 @@ import './cards.css'
 
 export const Cards = ({companies})=>{
     return(
-        companies.map((card)=><li > <Card card={card}/> </li>)
+        companies.map((card)=><li > <Card card={card} /> </li>)
     )
 }

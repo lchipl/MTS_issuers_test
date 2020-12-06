@@ -40,7 +40,7 @@ export default class Chart extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="percent" stroke="#8884d8" activeDot={{ r: 9}} />
+        <Line type="monotone" dataKey="MTS" stroke="#8884d8" activeDot={{ r: 9}} />
         
       </LineChart>
     );

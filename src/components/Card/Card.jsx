@@ -41,17 +41,17 @@ export const Card = ({card}) =>{
         },
         
         btn:{
-            width:'100%'
+            width:'100%',
+            height:70
         },
         btnClose:{
             color: '#E87866',
             cursor:'pointer',
-            background:'white',
             height:'5%',
             width:'5%',
             position:'fixed',
-            top:'5%',
-            right:'2%'
+            top:'3%',
+            right:'1%'
         }
 
       });
@@ -62,12 +62,8 @@ export const Card = ({card}) =>{
 
     
         const handleDifferense = (OPEN,CLOSE) =>{
-          let result = (CLOSE-OPEN)/OPEN*100;
-               result =  result.toFixed(2);
-             
-            
-             percent.push(result)
-            return result
+          
+            return Number(((CLOSE-OPEN)/OPEN*100).toFixed(2))
         }
 
       const promotions = 
@@ -88,11 +84,25 @@ export const Card = ({card}) =>{
 const data = [  ];
 for(let i = 0; i<promotions.length; i++){
     data.push({ name : promotions[i].TRADEDATE,
-                percent : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
+        MTS  : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
     })
 }
 
 console.log('дата?', data)
+
+    let colorClassName = ''
+
+    const nameCompany = card.securities.data[0][1];
+
+    if(nameCompany == "YNDX"){
+        colorClassName += ' yndx'
+    }
+    else if(nameCompany == "MTSS"){
+        colorClassName += ' mts'
+    }
+    else if(nameCompany == "SBCBA"){
+        colorClassName += 'sber'
+    }
 
     return(
         
@@ -132,7 +142,8 @@ console.log('дата?', data)
         </Modal>
         
   
-        <div className="card"  >
+        <div className={"card"}  >
+            <div className={colorClassName}>
                 <h3>​​​​name:</h3>
                     <p>id: {card.securities.data[0][0]} </p>
                     <p>secid: {card.securities.data[0][1]}</p>
@@ -142,10 +153,10 @@ console.log('дата?', data)
                    
                    <p>emitent_inn: {card.securities.data[0][9]}</p>
                    <p>gosreg: {card.securities.data[0][11]}</p>
-                
-            <Button color="primary" className={classes.btn} onClick={handleClickOpen}>
-                    Подробнее
-            </Button>           
+             </div>    
+                <Button color="primary" className={classes.btn} onClick={handleClickOpen}>
+                        Подробнее
+                </Button>           
         </div>
         </div>
     )
