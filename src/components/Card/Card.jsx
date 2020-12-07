@@ -12,11 +12,10 @@ export const Card = ({card}) =>{
     const [open,setOpen] = useState(false)
 
     const handleClickOpen =()=>{
-        setOpen(true)
+        setOpen((open)=>!open)
     }
-    const handleClose =()=>{
-        setOpen(false)
-    }
+
+
 
     const useStyles = makeStyles({
         modal: {
@@ -130,7 +129,7 @@ console.log('дата?', data)
 
             
             
-            <CancelPresentationIcon color="primary" className={classes.btnClose} onClick={handleClose} />
+            <CancelPresentationIcon color="primary" className={classes.btnClose} onClick={handleClickOpen} />
                      
             <Chart data={data} nameCompany={nameCompany}/>
 
