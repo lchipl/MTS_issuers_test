@@ -5,14 +5,14 @@ const initialState ={
     companies:[],
     loading:false,
     nameCompany:'',
-    devidents:[],
+    dividends:[],
     promotions:[],
 
 }
 
 const handlers = {
     [GET_COMPANIES]:(state,action) =>({...state, companies:action.payload, loading:false}),
-    [SET_DEVIDENTS]:(state,action) =>({...state, devidents:action.devidents }),
+    [SET_DEVIDENTS]:(state,action) =>({...state, dividends:action.dividends }),
     [SET_PROMOTIONS]:(state,action)=>({...state, promotions:action.promotions  }),
     [SET_LOADING]:(state)=>({...state,  loading:true}),
     [HIDE_LOADER]:(state) =>({...state,loading:false}),

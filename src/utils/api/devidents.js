@@ -8,5 +8,5 @@ export const getDevidents = async(nameCompany) =>{
 
 
     
-    return data
+    return data[1].dividends[1]
 }

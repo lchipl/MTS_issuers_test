@@ -8,7 +8,7 @@ import './main.css'
 
 export const Main = () =>{
     const dispatch = useDispatch()
-    const companies = useSelector(({companies})=>companies);
+    const {companies} = useSelector((state)=>state);
 
     useEffect(()=>{
         dispatch({type:FETCH_COMPANIES})

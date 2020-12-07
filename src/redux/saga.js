@@ -38,10 +38,10 @@ function* sagaWorkerCompany(){
       const {nameCompany} = yield select((state)=>state)
 
       yield put({type:SET_LOADING}) 
-       const devidents = yield call(getDevidents,nameCompany)
+       const dividends = yield call(getDevidents,nameCompany)
        const promotions = yield call(getPromotions,nameCompany)
 
-      yield put({type:SET_DEVIDENTS,devidents})
+      yield put({type:SET_DEVIDENTS,dividends})
       yield put({type:SET_PROMOTIONS,promotions})
       
       yield put({type:HIDE_LOADER})
