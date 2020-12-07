@@ -33,7 +33,7 @@ export const Main = () =>{
     return(
         <div className="main">
            
-        <Cards companies={companies}/>
+        <Cards dispatch={dispatch} companies={companies}/>
         </div>
     )
 }

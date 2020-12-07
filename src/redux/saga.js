@@ -1,6 +1,6 @@
 import {takeEvery, put,call, all} from 'redux-saga/effects';
 import { MosApi } from '../utils/api/api_info';
-import { GET_COMPANIES, GET_COMPANY,FETCH_COMPANY, HIDE_LOADER, SET_LOADING, FETCH_COMPANIES } from "./types";
+import { GET_COMPANIES, GET_COMPANY,FETCH_COMPANY,  HIDE_LOADER, SET_LOADING, FETCH_COMPANIES } from "./types";
 
  function* sagaFetchCompanies(){
   yield  takeEvery(FETCH_COMPANIES,sagaWorkerCompanies)

@@ -1,16 +1,18 @@
-import { GET_COMPANIES, GET_COMPANY, HIDE_LOADER, SET_LOADING } from "./types";
+import { GET_COMPANIES, GET_COMPANY, HIDE_LOADER, SET_LOADING,FETCH_COMPANY } from "./types";
 
 const initialState ={
-    company:{},
+    companyDetailts:{},
     companies:[],
-    loading:false
+    loading:false,
+    nameCompany:''
 }
 
 const handlers = {
     [GET_COMPANIES]:(state,action) =>({...state, companies:action.payload, loading:false}),
-    [GET_COMPANY]:(state,action) =>({...state, post:action.payload, loading:false}),
+    [GET_COMPANY]:(state,action) =>({...state, companyDetailts:action.payload, loading:false}),
     [SET_LOADING]:(state)=>({...state,  loading:true}),
     [HIDE_LOADER]:(state) =>({...state,loading:false}),
+    [FETCH_COMPANY]:(state,action) =>({...state, nameCompany:action.payload}),
     DEFAULT:(state) => state
 }
 

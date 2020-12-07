@@ -1,6 +1,8 @@
 import { Button,makeStyles,Modal } from '@material-ui/core';
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import React,{useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { FETCH_COMPANY } from '../../redux/types';
 import { Promotions } from '../Promotions/Promotions';
 import { Dividents } from '../Table/Dividents';
 import Chart from '../Сhart/Сhart';
@@ -10,13 +12,15 @@ import './card.css';
 export const Card = ({card}) =>{
 
     const [open,setOpen] = useState(false)
-
+    const dispatch = useDispatch()
     const handleClickOpen =()=>{
         setOpen((open)=>!open)
     }
 
-
-
+   const getDetails = ()=>{
+    handleClickOpen()
+       dispatch({type:FETCH_COMPANY,payload:nameCompany})
+   }
     const useStyles = makeStyles({
         modal: {
          display:'block',
@@ -60,7 +64,7 @@ export const Card = ({card}) =>{
       const percent = [];
 
 
-      const nameCompany = card.securities.data[0][1];
+      let nameCompany = card.securities.data[0][1];
     
         const handleDifferense = (OPEN,CLOSE) =>{
             let res = Number(((CLOSE-OPEN)/OPEN*100).toFixed(2))
@@ -81,6 +85,18 @@ export const Card = ({card}) =>{
         {"BOARDID": "TQBR", "TRADEDATE": "2020-01-15", "SHORTNAME": "МТС-ао", "SECID": "MTSS", "NUMTRADES": 9399, "VALUE": 697688247, "OPEN": 317, "LOW": 315.4, "HIGH": 319.55, "LEGALCLOSEPRICE": 318.65, "WAPRICE": 317.8, "CLOSE": 318.65, "VOLUME": 2195450, "MARKETPRICE2": 317.8, "MARKETPRICE3": 317.8, "ADMITTEDQUOTE": 318.65, "MP2VALTRD": 697688247, "MARKETPRICE3TRADESVALUE": 697688247, "ADMITTEDVALUE": 697688247, "WAVAL": null, "TRADINGSESSION": 3},
         {"BOARDID": "TQBR", "TRADEDATE": "2020-01-16", "SHORTNAME": "МТС-ао", "SECID": "MTSS", "NUMTRADES": 7436, "VALUE": 584029748.5, "OPEN": 318.65, "LOW": 317, "HIGH": 319.8, "LEGALCLOSEPRICE": 319.8, "WAPRICE": 318.55, "CLOSE": 319.8, "VOLUME": 1833270, "MARKETPRICE2": 318.55, "MARKETPRICE3": 318.55, "ADMITTEDQUOTE": 319.8, "MP2VALTRD": 584029748.5, "MARKETPRICE3TRADESVALUE": 584029748.5, "ADMITTEDVALUE": 584029748.5, "WAVAL": null, "TRADINGSESSION": 3},
 ]
+let colorClassName = ''
+if(nameCompany == "YNDX"){
+    colorClassName += ' yndx'
+}
+else if(nameCompany == "MTSS"){
+    colorClassName += ' mts'
+}
+else if(nameCompany == "SBCBA"){
+    nameCompany = "SBER"
+    colorClassName += 'sber'
+}
+
 
 
 const data = [  ];
@@ -94,19 +110,11 @@ for(let i = 0; i<promotions.length; i++){
 
 console.log('дата?', data)
 
-    let colorClassName = ''
+    
 
     
 
-    if(nameCompany == "YNDX"){
-        colorClassName += ' yndx'
-    }
-    else if(nameCompany == "MTSS"){
-        colorClassName += ' mts'
-    }
-    else if(nameCompany == "SBCBA"){
-        colorClassName += 'sber'
-    }
+    
 
     return(
         
@@ -159,7 +167,9 @@ console.log('дата?', data)
                    <p>emitent_inn: {card.securities.data[0][9]}</p>
                    <p>gosreg: {card.securities.data[0][11]}</p>
              </div>    
-                <Button color="primary" className={classes.btn} onClick={handleClickOpen}>
+                <Button color="primary" className={classes.btn}
+                  onClick={getDetails}
+                  >
                         Подробнее
                 </Button>           
         </div>
