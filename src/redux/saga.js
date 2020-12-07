@@ -1,6 +1,6 @@
 import {takeEvery, put,call, all, takeLatest, select} from 'redux-saga/effects';
 import { MosApi } from '../utils/api/api_info';
-import { getDevidents } from '../utils/api/devidents';
+import { getDevidends } from '../utils/api/dividends';
 import { getPromotions } from '../utils/api/promotions';
 import { GET_COMPANIES, FETCH_COMPANY,  HIDE_LOADER, SET_LOADING, FETCH_COMPANIES, SET_DEVIDENTS, SET_PROMOTIONS } from "./types";
 
@@ -38,7 +38,7 @@ function* sagaWorkerCompany(){
       const {nameCompany} = yield select((state)=>state)
 
       yield put({type:SET_LOADING}) 
-       const dividends = yield call(getDevidents,nameCompany)
+       const dividends = yield call(getDevidends,nameCompany)
        const promotions = yield call(getPromotions,nameCompany)
 
       yield put({type:SET_DEVIDENTS,dividends})

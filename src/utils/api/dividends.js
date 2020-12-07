@@ -1,10 +1,10 @@
 import axios from "axios"
 
 
-export const getDevidents = async(nameCompany) =>{
+export const getDevidends = async(nameCompany) =>{
     const {data} =   await axios.get(`
     http://iss.moex.com/iss/securities/${nameCompany}/dividends.json?iss.json=extended`)
-    
+    console.log('тут',data)
 
 
     

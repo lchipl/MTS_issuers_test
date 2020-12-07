@@ -10,10 +10,10 @@ export default class Chart extends PureComponent {
  
   render() {
 
-
+    console.log(this.props.data.tradeDate)
     return (
       <LineChart
-        width={500}
+        width={600}
         height={300}
         data={this.props.data}
         margin={{
@@ -21,7 +21,7 @@ export default class Chart extends PureComponent {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <XAxis dataKey={this.props.data.tradeDate} />
         <YAxis />
         <Tooltip />
         <Legend />

@@ -4,7 +4,7 @@ import React,{useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FETCH_COMPANY } from '../../redux/types';
 import { Promotions } from '../Promotions/Promotions';
-import { Dividents } from '../Table/Dividents';
+import { Dividends } from '../Table/Dividends';
 import Chart from '../Сhart/Сhart';
 
 import './card.css';
@@ -73,7 +73,7 @@ export const Card = ({card}) =>{
         }
 
       
-      const {promotions} = useSelector((state)=>state);
+      const {promotions,dividends} = useSelector((state)=>state);
 
 
 let colorClassName = ''
@@ -92,14 +92,13 @@ else if(nameCompany == "SBCBA"){
 
 const data = [  ];
 for(let i = 0; i<promotions.length; i++){
+    
     data.push({ 
         tradeDate : promotions[i].TRADEDATE,
         [nameCompany]  : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
     })
 
 }
-
-console.log('дата?', data)
 
     
 
@@ -124,7 +123,7 @@ console.log('дата?', data)
             
                 
            
-            <Dividents />
+            <Dividends dividends={dividends}/>
 
             
             

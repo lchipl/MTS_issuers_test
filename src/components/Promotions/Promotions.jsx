@@ -9,7 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 const useStyles = makeStyles({
   table: {
     fontSize:10,
-    maxWidth: 450
+    maxWidth: 450,
+    marginLeft:'7%'
   },
 });
 
@@ -17,9 +18,6 @@ const useStyles = makeStyles({
 export  const  Promotions = ({promotions,data,nameCompany}) => {
   const classes = useStyles();
 
- const promotionsTable = promotions.slice().reverse()
- 
-  console.log('проценты', data)
   return (
       
       <Table className={classes.table} size="small" aria-label="a dense table">
@@ -32,7 +30,7 @@ export  const  Promotions = ({promotions,data,nameCompany}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {promotionsTable.map((promotion,i) => (
+          {promotions.map((promotion,i) => (
             <TableRow >
               
               <TableCell align="center">{promotion.TRADEDATE}</TableCell> 
