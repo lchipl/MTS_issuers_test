@@ -1,6 +1,8 @@
-import {takeEvery, put,call, all} from 'redux-saga/effects';
+import {takeEvery, put,call, all, takeLatest} from 'redux-saga/effects';
 import { MosApi } from '../utils/api/api_info';
-import { GET_COMPANIES, GET_COMPANY,FETCH_COMPANY,  HIDE_LOADER, SET_LOADING, FETCH_COMPANIES } from "./types";
+import { getDevidents } from '../utils/api/devidents';
+import { getPromotions } from '../utils/api/Promotions';
+import { GET_COMPANIES, FETCH_COMPANY,  HIDE_LOADER, SET_LOADING, FETCH_COMPANIES, GET_DEVIDENTS, GET_PROMOTIONS } from "./types";
 
  function* sagaFetchCompanies(){
   yield  takeEvery(FETCH_COMPANIES,sagaWorkerCompanies)
@@ -25,7 +27,7 @@ function* sagaWorkerCompanies(){
 
 
  function* sagaFetchCompany(){
-  yield  takeEvery(FETCH_COMPANY,sagaWorkerCompany)
+  yield  takeLatest(FETCH_COMPANY,sagaWorkerCompany)
 }
 
 
@@ -33,9 +35,12 @@ function* sagaWorkerCompanies(){
 function* sagaWorkerCompany(){
     
     try{
+
       yield put({type:SET_LOADING}) 
-      //  const payload = yield call(//)
-      // yield put({type:GET_COMPANY,payload})
+       const devidents = yield call(getDevidents)
+       const promotions = yield call(getPromotions)
+      yield put({type:GET_DEVIDENTS,devidents})
+      yield put({type:GET_PROMOTIONS,promotions})
       
       yield put({type:HIDE_LOADER})
     }catch(e){
