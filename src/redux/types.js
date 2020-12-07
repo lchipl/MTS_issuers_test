@@ -6,5 +6,5 @@ export const FETCH_COMPANIES = 'FETCH_COMPANIES';
 export const GET_COMPANIES = 'GET_COMPANIES';
 
 export const FETCH_COMPANY = 'FETCH_COMPANY';
-export const GET_DEVIDENTS = 'GET_COMPANY';
-export const GET_PROMOTIONS = 'GET_COMPANY';
+export const SET_DEVIDENTS = 'GET_COMPANY';
+export const SET_PROMOTIONS = 'GET_COMPANY';

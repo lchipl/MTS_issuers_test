@@ -1,16 +1,19 @@
-import { GET_COMPANIES, HIDE_LOADER, SET_LOADING,FETCH_COMPANY, GET_DEVIDENTS, GET_PROMOTIONS } from "./types";
+import { GET_COMPANIES, HIDE_LOADER, SET_LOADING,FETCH_COMPANY, SET_DEVIDENTS, SET_PROMOTIONS } from "./types";
 
 const initialState ={
     companyDetailts:{},
     companies:[],
     loading:false,
-    nameCompany:''
+    nameCompany:'',
+    devidents:[],
+    promotions:[],
+
 }
 
 const handlers = {
     [GET_COMPANIES]:(state,action) =>({...state, companies:action.payload, loading:false}),
-    [GET_DEVIDENTS]:(state,action) =>({...state, devidents:action.payload }),
-    [GET_PROMOTIONS]:(state,action)=>({...state, promotions:action.payload  }),
+    [SET_DEVIDENTS]:(state,action) =>({...state, devidents:action.payload }),
+    [SET_PROMOTIONS]:(state,action)=>({...state, promotions:action.payload  }),
     [SET_LOADING]:(state)=>({...state,  loading:true}),
     [HIDE_LOADER]:(state) =>({...state,loading:false}),
     [FETCH_COMPANY]:(state,action) =>({...state, nameCompany:action.payload}),
