@@ -14,14 +14,11 @@ const useStyles = makeStyles({
 });
 
 
-
-
 export  const  Promotions = ({promotions,data,nameCompany}) => {
   const classes = useStyles();
-    
-  promotions.reverse()
 
-
+ const promotionsTable = promotions.slice().reverse()
+ 
   console.log('проценты', data)
   return (
       
@@ -35,7 +32,7 @@ export  const  Promotions = ({promotions,data,nameCompany}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {promotions.map((promotion,i) => (
+          {promotionsTable.map((promotion,i) => (
             <TableRow >
               
               <TableCell align="center">{promotion.TRADEDATE}</TableCell> 
