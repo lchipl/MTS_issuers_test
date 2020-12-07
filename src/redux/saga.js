@@ -1,7 +1,7 @@
 import {takeEvery, put,call, all, takeLatest, select} from 'redux-saga/effects';
 import { MosApi } from '../utils/api/api_info';
 import { getDevidents } from '../utils/api/devidents';
-import { getPromotions } from '../utils/api/Promotions';
+import { getPromotions } from '../utils/api/promotions';
 import { GET_COMPANIES, FETCH_COMPANY,  HIDE_LOADER, SET_LOADING, FETCH_COMPANIES, SET_DEVIDENTS, SET_PROMOTIONS } from "./types";
 
  function* sagaFetchCompanies(){
