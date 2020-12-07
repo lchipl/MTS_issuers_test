@@ -9,7 +9,7 @@ export default class Chart extends PureComponent {
 
  
   render() {
-
+    console.log('дата в компоненте',this.props.data.tradeDate)
      return (
       <LineChart
         width={600}
@@ -20,7 +20,7 @@ export default class Chart extends PureComponent {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey={this.props.data.tradeDate} />
+        <XAxis dataKey='tradeDate' />
         <YAxis />
         <Tooltip />
         <Legend />
