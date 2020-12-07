@@ -147,7 +147,7 @@ console.log(`дата`,data)
   
         <div className={"card"}  >
             <div className={colorClassName}>
-                <h3>​​​​name:</h3>
+                <p>​​​​name: <strong>{nameCompany}</strong></p>
                     <p>id: {card.securities.data[0][0]} </p>
                     <p>secid: {card.securities.data[0][1]}</p>
                     <p>shortname:</p> 
