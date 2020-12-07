@@ -11,10 +11,10 @@ export const MosApi =async () =>{
     for(let i=0;i<COMPANIES.length;i++){
 
         
-        const res = await axios.get(`${_base_api}${COMPANIES[i]}`)
-        const result = await res.data;
+        const {data} = await axios.get(`${_base_api}${COMPANIES[i]}`)
+        
 
-        store.push(result)
+        store.push(data)
     }
 
 

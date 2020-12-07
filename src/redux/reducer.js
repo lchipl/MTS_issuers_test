@@ -12,8 +12,8 @@ const initialState ={
 
 const handlers = {
     [GET_COMPANIES]:(state,action) =>({...state, companies:action.payload, loading:false}),
-    [SET_DEVIDENTS]:(state,action) =>({...state, devidents:action.payload }),
-    [SET_PROMOTIONS]:(state,action)=>({...state, promotions:action.payload  }),
+    [SET_DEVIDENTS]:(state,action) =>({...state, devidents:action.devidents }),
+    [SET_PROMOTIONS]:(state,action)=>({...state, promotions:action.promotions  }),
     [SET_LOADING]:(state)=>({...state,  loading:true}),
     [HIDE_LOADER]:(state) =>({...state,loading:false}),
     [FETCH_COMPANY]:(state,action) =>({...state, nameCompany:action.payload}),
@@ -21,6 +21,7 @@ const handlers = {
 }
 
 export const reducer = (state=initialState,action) =>{
+    console.log('экшон', action)
     const handle = handlers[action.type] || handlers.DEFAULT
     return handle(state,action)
 }
