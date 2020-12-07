@@ -102,7 +102,7 @@ for(let i = 0; i<promotions.length; i++){
 
     
 
-    
+console.log(`дата`,data)
 
     
 

@@ -10,8 +10,7 @@ export default class Chart extends PureComponent {
  
   render() {
 
-    console.log(this.props.data.tradeDate)
-    return (
+     return (
       <LineChart
         width={600}
         height={300}
