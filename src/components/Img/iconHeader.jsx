@@ -6,21 +6,21 @@ import Sber from '../../assets/logo/sber.png'
 import Yndx from '../../assets/logo/yndx.jpg'
 
 export const IconHeader = ({nameCompany}) =>{
-    if(nameCompany == "YNDX"){
+    if(nameCompany === "YNDX"){
         return(
             <img src={Yndx}
              alt="Logo"
         />
         )
     }
-    else if(nameCompany == "MTSS"){
+    else if(nameCompany === "MTSS"){
         return(
             <img src={Mts}
              alt="Logo"
         />
         )
     }
-    else if(nameCompany == "SBER"){
+    else if(nameCompany === "SBER"){
         
         return(
             <img src={Sber}
