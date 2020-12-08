@@ -61,15 +61,14 @@ export const Card = ({card}) =>{
       const classes = useStyles();
 
 
-      const percent = [];
 
 
       let nameCompany = card.securities.data[0][1];
     
         const handleDifferense = (OPEN,CLOSE) =>{
-            let res = Number(((CLOSE-OPEN)/OPEN*100).toFixed(2))
-            percent.push(res)
-            return res
+            
+            
+            return Number(((CLOSE-OPEN)/OPEN*100).toFixed(2))
         }
 
       

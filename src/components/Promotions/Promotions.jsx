@@ -17,6 +17,10 @@ const useStyles = makeStyles({
 
 export  const  Promotions = ({promotions,data,nameCompany}) => {
   const classes = useStyles();
+  const promTable = promotions.slice().reverse()
+  const actualData = data.slice().reverse()
+  console.log('измененное',promTable)
+  console.log('дефолт',promotions)
 
   return (
       
@@ -30,13 +34,13 @@ export  const  Promotions = ({promotions,data,nameCompany}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {promotions.map((promotion,i) => (
+          {promTable.map((promotion,i) => (
             <TableRow >
               
               <TableCell align="center">{promotion.TRADEDATE}</TableCell> 
               <TableCell align="center">{promotion.OPEN}</TableCell>
               <TableCell align="center">{promotion.CLOSE}</TableCell>
-              <TableCell align="center">{data[i][nameCompany]}</TableCell>
+              <TableCell align="center">{actualData[i][nameCompany]}</TableCell>
             </TableRow>
           ))}
         </TableBody>
