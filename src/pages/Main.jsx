@@ -14,20 +14,7 @@ export const Main = () =>{
         dispatch({type:FETCH_COMPANIES})
     },[])
 
-    const [state,setState] = useState({
-        cards:[{
-            id:1,
-            name:'MTS'
-        },
-        {
-            id:2,
-            name:'Yand'
-        },
-        {
-            id:3,
-            name:'Sber'
-        }]
-    })
+    
         
     
     return(

@@ -6,10 +6,7 @@ import { FETCH_COMPANY } from '../../redux/types';
 import { Promotions } from '../Promotions/Promotions';
 import { Dividends } from '../Table/Dividends';
 import Chart from '../Сhart/Сhart';
-
-import Mts from '../../assets/logo/mts.png'
-import Sber from '../../assets/logo/sber.jpg'
-import Yndx from '../../assets/logo/yndx.jpg'
+import {IconHeader} from '../Img/iconHeader'
 
 import './card.css';
 
@@ -67,8 +64,7 @@ export const Card = ({card}) =>{
 
 
 
-      let nameCompany = card.securities.data[0][1];
-    
+      let nameCompany = card.securities.data[0][1] === "SBCBA"? "SBER":card.securities.data[0][1];
         const handleDifferense = (OPEN,CLOSE) =>{
           
             
@@ -96,32 +92,7 @@ for(let i = 0; i<promotions.length; i++){
 
     
 
-console.log(`дата`,data)
-
-    const ImageIcon = () =>{
-        if(nameCompany == "YNDX"){
-            return(
-                <img src={Yndx}
-                 alt="Logo"
-            />
-            )
-        }
-        else if(nameCompany == "MTSS"){
-            return(
-                <img src={Mts}
-                 alt="Logo"
-            />
-            )
-        }
-        else if(nameCompany == "SBCBA"){
-            nameCompany = "SBER"
-            return(
-                <img src={Sber}
-                 alt="Logo"
-            />
-            )
-        }
-    }
+    
 
     return(
         
@@ -164,7 +135,7 @@ console.log(`дата`,data)
   
         <div className="card"  >
             <header>
-                <ImageIcon />
+                <IconHeader nameCompany={nameCompany}/>
             </header>
             
                 <p>название: <strong>{nameCompany}</strong></p>
@@ -177,8 +148,9 @@ console.log(`дата`,data)
                    <p>ИНН: {card.securities.data[0][9]}</p>
                    <p>gosreg: {card.securities.data[0][11]}</p>
               
-                <Button color="primary" className={classes.btn}
-                  onClick={getDetails}
+                <Button color="primary" 
+                        className={classes.btn}
+                        onClick={getDetails}
                   >
                         Подробнее
                 </Button>           
