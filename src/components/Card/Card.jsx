@@ -7,6 +7,10 @@ import { Promotions } from '../Promotions/Promotions';
 import { Dividends } from '../Table/Dividends';
 import Chart from '../Сhart/Сhart';
 
+import Mts from '../../assets/logo/mts.png'
+import Sber from '../../assets/logo/sber.jpg'
+import Yndx from '../../assets/logo/yndx.jpg'
+
 import './card.css';
 
 export const Card = ({card}) =>{
@@ -75,17 +79,8 @@ export const Card = ({card}) =>{
       const {promotions,dividends} = useSelector((state)=>state);
 
 
-let colorClassName = ''
-if(nameCompany == "YNDX"){
-    colorClassName += ' yndx'
-}
-else if(nameCompany == "MTSS"){
-    colorClassName += ' mts'
-}
-else if(nameCompany == "SBCBA"){
-    nameCompany = "SBER"
-    colorClassName += 'sber'
-}
+
+
 
 
 
@@ -103,7 +98,30 @@ for(let i = 0; i<promotions.length; i++){
 
 console.log(`дата`,data)
 
-    
+    const ImageIcon = () =>{
+        if(nameCompany == "YNDX"){
+            return(
+                <img src={Yndx}
+                 alt="Logo"
+            />
+            )
+        }
+        else if(nameCompany == "MTSS"){
+            return(
+                <img src={Mts}
+                 alt="Logo"
+            />
+            )
+        }
+        else if(nameCompany == "SBCBA"){
+            nameCompany = "SBER"
+            return(
+                <img src={Sber}
+                 alt="Logo"
+            />
+            )
+        }
+    }
 
     return(
         
@@ -146,21 +164,19 @@ console.log(`дата`,data)
   
         <div className="card"  >
             <header>
-            <img src="#"
-                 alt="Logo"
-            />
+                <ImageIcon />
             </header>
-            <div className={colorClassName}>
-                <p>​​​​name: <strong>{nameCompany}</strong></p>
-                    <p>id: {card.securities.data[0][0]} </p>
+            
+                <p>название: <strong>{nameCompany}</strong></p>
+                    <p>ID: {card.securities.data[0][0]} </p>
                     <p>secid: {card.securities.data[0][1]}</p>
                     
                     ​​​​
-                   <p>regnumber:{card.securities.data[0][3]}</p>
+                   <p>regnumber: {card.securities.data[0][3]}</p>
                    
-                   <p>emitent_inn: {card.securities.data[0][9]}</p>
+                   <p>ИНН: {card.securities.data[0][9]}</p>
                    <p>gosreg: {card.securities.data[0][11]}</p>
-             </div>    
+              
                 <Button color="primary" className={classes.btn}
                   onClick={getDetails}
                   >
