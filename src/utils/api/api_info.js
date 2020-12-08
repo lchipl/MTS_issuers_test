@@ -18,6 +18,5 @@ export const MosApi =async () =>{
     }
 
 
-   console.log(store)
    return store
 }

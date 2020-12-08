@@ -19,8 +19,7 @@ export  const  Promotions = ({promotions,data,nameCompany}) => {
   const classes = useStyles();
   const promTable = promotions.slice().reverse()
   const actualData = data.slice().reverse()
-  console.log('измененное',promTable)
-  console.log('дефолт',promotions)
+  
 
   return (
       

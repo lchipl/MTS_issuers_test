@@ -21,7 +21,7 @@ const handlers = {
 }
 
 export const reducer = (state=initialState,action) =>{
-    console.log('экшон', action)
+    
     const handle = handlers[action.type] || handlers.DEFAULT
     return handle(state,action)
 }

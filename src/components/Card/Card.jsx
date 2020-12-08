@@ -1,6 +1,6 @@
 import { Button, makeStyles } from '@material-ui/core';
 
-import React,{useState} from 'react';
+import React,{useState, useMemo} from 'react';
 
 import './card.css';
 
@@ -12,8 +12,14 @@ import { ModalWindow } from '../Modal/Modal';
 
 import { handleDifferense } from '../../utils/percent';
 
-export const Card = ({card}) =>{
 
+
+
+
+export const Card = ({card}) =>{
+    
+    const classes = useStyles();
+    
     const [open,setOpen] = useState(false)
     const handleClickOpen =()=>{
         setOpen((open)=>!open)
@@ -27,60 +33,13 @@ export const Card = ({card}) =>{
        dispatch({type:FETCH_COMPANY,payload:nameCompany})
    }
 
-   const useStyles = makeStyles({
-    modal: {
-     display:'block',
-     height:'90%',
-      overflow:'scroll'
-    },
-    
-    wrapper:{
-        display:'grid',
-        'grid-template-columns':'1fr 1fr',
-        'grid-template-rows':'300px 50%',
-        'grid-column-gap':'3%'
-    },
-    cost:{
-        'grid-column':2,
-        'grid-row':2
-    },
-    table:{
-        'grid-column':1/2,
-        'grid-row':1/3
-    },
-    
-    btn:{
-        width:'100%',
-        height:70
-    },
-    btnClose:{
-        color: '#E87866',
-        cursor:'pointer',
-        height:'7%',
-        width:'7%',
-        position:'fixed',
-        top:'3%',
-        right:'1%'
-    }
-
-  });
-  const classes = useStyles();
+   
 
 
 
 
-      let nameCompany = card.securities.data[0][1] === "SBCBA"? "SBER":card.securities.data[0][1];  
-    
-      const data = [  ];
-
-        for(let i = 0; i<promotions.length; i++){
-            
-            data.push({ 
-                tradeDate : promotions[i].TRADEDATE,
-                [nameCompany]  : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
-            })
-
-    }
+    let nameCompany = card.securities.data[0][1] === "SBCBA"? "SBER":card.securities.data[0][1];  
+    const data = useMemo(()=> createDataInform(promotions, nameCompany), [promotions, nameCompany]) 
 
     return(
         
@@ -122,6 +81,58 @@ export const Card = ({card}) =>{
 }
 
 
+const createDataInform = (promotions, nameCompany) =>{
 
+    const data = []
 
+        for(let i = 0; i<promotions.length; i++){
 
+            data.push({ 
+                tradeDate : promotions[i].TRADEDATE,
+                [nameCompany]  : handleDifferense(promotions[i].OPEN,promotions[i].CLOSE)
+            })
+
+            
+        }
+        
+return data
+
+}
+
+const useStyles = makeStyles({
+    modal: {
+     display:'block',
+     height:'90%',
+      overflow:'scroll'
+    },
+    
+    wrapper:{
+        display:'grid',
+        'grid-template-columns':'1fr 1fr',
+        'grid-template-rows':'300px 50%',
+        'grid-column-gap':'3%'
+    },
+    cost:{
+        'grid-column':2,
+        'grid-row':2
+    },
+    table:{
+        'grid-column':1/2,
+        'grid-row':1/3
+    },
+    
+    btn:{
+        width:'100%',
+        height:70
+    },
+    btnClose:{
+        color: '#E87866',
+        cursor:'pointer',
+        height:'7%',
+        width:'7%',
+        position:'fixed',
+        top:'3%',
+        right:'1%'
+    }
+
+  });
