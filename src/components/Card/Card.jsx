@@ -66,7 +66,7 @@ export const Card = ({card}) =>{
       let nameCompany = card.securities.data[0][1];
     
         const handleDifferense = (OPEN,CLOSE) =>{
-            
+          
             
             return Number(((CLOSE-OPEN)/OPEN*100).toFixed(2))
         }
@@ -144,14 +144,19 @@ console.log(`дата`,data)
         </Modal>
         
   
-        <div className={"card"}  >
+        <div className="card"  >
+            <header>
+            <img src="#"
+                 alt="Logo"
+            />
+            </header>
             <div className={colorClassName}>
                 <p>​​​​name: <strong>{nameCompany}</strong></p>
                     <p>id: {card.securities.data[0][0]} </p>
                     <p>secid: {card.securities.data[0][1]}</p>
-                    <p>shortname:</p> 
+                    
                     ​​​​
-                   <p>regnumber:</p>
+                   <p>regnumber:{card.securities.data[0][3]}</p>
                    
                    <p>emitent_inn: {card.securities.data[0][9]}</p>
                    <p>gosreg: {card.securities.data[0][11]}</p>
